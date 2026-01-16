@@ -17,6 +17,7 @@
 .add-another:hover { background-color: #057a2d; }
 .remove-item:hover { background-color: #96281b; }
 .variety .pack { width: 60px; }
+.buttons-container { display: flex; gap: 5px; }
 </style>
 </head>
 <body>
@@ -41,13 +42,13 @@
 </section>
 
 <section>
-    <h2>What we sell</h2>
-    <div class="product">
-        <div class="product-item"><img src="image/provision.jpg" alt="Provision"><p>Provision & Essentials</p></div>
-        <div class="product-item"><img src="image/drinks.jpg" alt="Drinks"><p>Drinks</p></div>
-        <div class="product-item"><img src="image/snacks.jpg" alt="Snacks"><p>Snacks & Biscuits</p></div>
-        <div class="product-item"><img src="image/frozenfoods.jpg" alt="Frozenfoods"><p>Frozen foods</p></div>
-    </div>
+<h2>What we sell</h2>
+<div class="product">
+    <div class="product-item"><img src="image/provision.jpg" alt="Provision"><p>Provision & Essentials</p></div>
+    <div class="product-item"><img src="image/drinks.jpg" alt="Drinks"><p>Drinks</p></div>
+    <div class="product-item"><img src="image/snacks.jpg" alt="Snacks"><p>Snacks & Biscuits</p></div>
+    <div class="product-item"><img src="image/frozenfoods.jpg" alt="Frozenfoods"><p>Frozen foods</p></div>
+</div>
 </section>
 
 <section>
@@ -59,7 +60,7 @@
 
 <div class="order-products">
 
-<!-- Snacks -->
+<!-- SNACKS -->
 <div class="product-item">
 <img src="image/snacks.jpg" alt="Snacks">
 <h3>Snacks</h3>
@@ -75,7 +76,9 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
+</div>
 </div>
 </div>
 
@@ -89,7 +92,9 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
+</div>
 </div>
 </div>
 
@@ -103,12 +108,14 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
 </div>
 </div>
 </div>
+</div>
 
-<!-- Drinks -->
+<!-- DRINKS -->
 <div class="product-item">
 <img src="image/drinks.jpg" alt="Drinks">
 <h3>Drinks</h3>
@@ -124,7 +131,9 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
+</div>
 </div>
 </div>
 
@@ -139,12 +148,14 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
 </div>
 </div>
 </div>
+</div>
 
-<!-- Provisions -->
+<!-- PROVISIONS -->
 <div class="product-item">
 <img src="image/provision.jpg" alt="Provisions">
 <h3>Provisions</h3>
@@ -159,7 +170,9 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
+</div>
 </div>
 </div>
 
@@ -173,12 +186,14 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
 </div>
 </div>
 </div>
+</div>
 
-<!-- Frozen Foods -->
+<!-- FROZEN FOODS -->
 <div class="product-item">
 <img src="image/frozenfoods.jpg" alt="Frozen Foods">
 <h3>Frozen Foods</h3>
@@ -193,7 +208,9 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
+</div>
 </div>
 </div>
 
@@ -207,12 +224,14 @@
 </select>
 <input type="number" class="product-quantity" min="0" value="0" placeholder="Qty">
 <input type="number" class="pack" min="0" value="0" placeholder="Pack">
+<div class="buttons-container">
 <button type="button" class="add-another">+ Add Another</button>
 </div>
 </div>
 </div>
-
 </div>
+
+</div> <!-- end order-products -->
 
 <p><strong>Total:</strong> ₦<span id="totalPrice">0</span></p>
 <button type="submit" class="button">Send Order on WhatsApp</button>
@@ -245,37 +264,32 @@ function attachListeners(container) {
     container.querySelectorAll(".product-quantity, .pack").forEach(input => input.addEventListener("input", updateTotal));
     container.querySelectorAll(".product-option").forEach(select => select.addEventListener("change", updateTotal));
 
-    container.querySelectorAll(".add-another").forEach(btn => {
-        btn.replaceWith(btn.cloneNode(true));
-    });
-
+    // Add Another
     container.querySelectorAll(".add-another").forEach(btn => {
         btn.addEventListener("click", () => {
-            const row = btn.parentElement;
+            const row = btn.closest(".variety");
             const parent = row.parentElement;
             const clone = row.cloneNode(true);
+
             clone.querySelector(".product-quantity").value = 0;
             clone.querySelector(".pack").value = 0;
             clone.querySelector(".product-option").selectedIndex = 0;
 
-            if (!clone.querySelector(".remove-item")) {
-                const removeBtn = document.createElement("button");
-                removeBtn.type = "button";
-                removeBtn.className = "remove-item";
-                removeBtn.textContent = "Remove";
-                removeBtn.addEventListener("click", () => {
-                    clone.remove();
-                    updateTotal();
-                });
-                clone.appendChild(removeBtn);
-            }
+            // Only cloned rows get Remove button
+            const removeBtn = document.createElement("button");
+            removeBtn.type = "button";
+            removeBtn.className = "remove-item";
+            removeBtn.textContent = "Remove";
+            removeBtn.addEventListener("click", () => {
+                clone.remove();
+                updateTotal();
+            });
+            clone.querySelector(".buttons-container").appendChild(removeBtn);
 
             parent.appendChild(clone);
             attachListeners(parent);
         });
     });
-
-    container.querySelectorAll(".remove-item").forEach(btn => btn.addEventListener("click", () => { btn.parentElement.remove(); updateTotal(); }));
 }
 
 attachListeners(document);
