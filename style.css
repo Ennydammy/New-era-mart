@@ -1,6 +1,7 @@
-/* ===== Base Styles ===== */
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'montserrat', sans-serif;
+    font-weight: 900;
     margin: 0;
     padding: 0;
     background-color: rgba(221, 230, 225, 0.667);
@@ -54,7 +55,9 @@ section {
 }
 
 h2 {
-    color: #09377d;
+    color: #020915;
+    font-family: 'montserrat', sans-serif;
+    font-weight: 700;
 }
 
 h3 {
